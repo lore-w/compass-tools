@@ -1,0 +1,65 @@
+@charset "utf-8";
+
+/*
+ *@Description: css绘制三角形
+ */
+
+@mixin triangle ($triangle-size: 10px, $triangle-color: #000, $triangle-direction: top, $triangle-thin: false) {
+
+    display: block;
+    width: 0;
+    height: 0;
+
+    @if $triangle-thin {
+
+        @if $triangle-direction == top {
+            border-left: $triangle-size solid transparent;
+            border-right: $triangle-size solid transparent;
+            border-bottom: $triangle-size solid $triangle-color;
+        }
+
+        @if $triangle-direction == bottom {
+            border-left: $triangle-size solid transparent;
+            border-right: $triangle-size solid transparent;
+            border-top: $triangle-size solid $triangle-color;
+        }
+
+        @if $triangle-direction == left {
+            border-top: $triangle-size solid transparent;
+            border-right: $triangle-size solid $triangle-color;
+            border-bottom: $triangle-size solid transparent;
+        }
+
+        @if $triangle-direction == right {
+            border-left: $triangle-size solid $triangle-color;
+            border-top: $triangle-size solid transparent;
+            border-bottom: $triangle-size solid transparent;
+        }
+
+    } @else {
+
+        @if $triangle-direction == top {
+            border-left: $triangle-size/2 solid transparent;
+            border-right: $triangle-size/2 solid transparent;
+            border-bottom: $triangle-size solid $triangle-color;
+        }
+
+        @if $triangle-direction == bottom {
+            border-left: $triangle-size/2 solid transparent;
+            border-right: $triangle-size/2 solid transparent;
+            border-top: $triangle-size solid $triangle-color;
+        }
+
+        @if $triangle-direction == left {
+            border-top: $triangle-size/2 solid transparent;
+            border-right: $triangle-size solid $triangle-color;
+            border-bottom: $triangle-size/2 solid transparent;
+        }
+
+        @if $triangle-direction == right {
+            border-left: $triangle-size solid $triangle-color;
+            border-top: $triangle-size/2 solid transparent;
+            border-bottom: $triangle-size/2 solid transparent;
+        }
+    }
+}

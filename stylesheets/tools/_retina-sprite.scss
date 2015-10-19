@@ -1,0 +1,54 @@
+@charset "utf-8";
+
+/*
+ *@Description: 视网膜屏下使用图片精灵
+ */
+@mixin retina-sprite($map, $sprite, $horizontal: false, $vertical: false) {
+
+    $width: image-width(sprite-file($map, $sprite));
+    $height: image-height(sprite-file($map, $sprite));
+
+    //$offsetX: ceil(nth(sprite-position($map,$sprite),1)/2);
+    $offsetY: ceil(nth(sprite-position($map,$sprite),2)/2);
+
+    background: sprite-url($map) 0 $offsetY no-repeat;
+
+    //$zoomX: ceil(image-width(sprite-path($map))/2);
+    $zoomX: ceil(sprite-width($map/2));
+
+    $zoomY: auto;
+
+    @include background-size($zoomX $zoomY);
+
+    display: block;
+    width: ceil($width/2)+1;
+    height: ceil($height/2)+1;
+
+
+    // set vertical or horizontal center
+
+    @if $horizontal and $vertical {
+        position: absolute;
+        left: 50%;
+        margin-left: -(round($width/4));
+
+        top: 50%;
+        margin-top: -(round($height/4));
+    }
+
+    @if $horizontal and not $vertical {
+        position: absolute;
+        left: 50%;
+        margin-left: -(round($width/4));
+
+        top: 0;
+    }
+
+    @if not $horizontal and $vertical {
+        position: absolute;
+        left: 0;
+
+        top: 50%;
+        margin-top: -(round($height/4));
+    }
+}
