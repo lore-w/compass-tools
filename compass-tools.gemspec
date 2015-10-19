@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 Gem::Specification.new do |gem|
  gem.name = "compass-tools"
- gem.version = "0.0.1"
+ gem.version = "0.0.2"
  gem.authors = ["Lore-w"]
  gem.email = ["metro-cpu@hotmail.com"]
  gem.description =

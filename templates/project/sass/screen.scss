@@ -1,0 +1,33 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass";
+
+@import "compass-tools";
+
+
+$icons: sprite-map("icons/*.png",$spacing: 5px);
+
+@include global-reset(); //reset
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+#compass-demo {
+    background: #fafafa;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    @include hide-text();
+
+    li {
+        @for $i from 1 through 4 {
+            &:nth-of-type(#{$i}) {
+                @include rem-sprite($icons, $i);
+            }
+        }
+    }
+}
