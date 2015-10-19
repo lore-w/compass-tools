@@ -48,30 +48,32 @@ div.demo {
 ```
 前置条件：
 ```html
+...
 <title>compass demo</title>
-    <script type="text/javascript">
-        (function (doc, win) {
-            var docEl = doc.documentElement,
-                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-                    recalc = function () {
-                        var clientWidth = docEl.clientWidth;
-                        if (!clientWidth) {
-                            return;
-                        }
-                        docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
-                    };
+<script type="text/javascript">
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function () {
+                var clientWidth = docEl.clientWidth;
+                if (!clientWidth) {
+                    return;
+                }
+                docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+            };
 
-            if (!doc.addEventListener) {
-                return;
-            }
-            recalc();
-            //win.addEventListener(resizeEvt, recalc, false);
-            //doc.addEventListener('DOMContentLoaded', recalc, false);
-        })(document, window);
-    </script>
-    <link rel="stylesheet" href="...css"/>
+        if (!doc.addEventListener) {
+            return;
+        }
+        recalc();
+        //win.addEventListener(resizeEvt, recalc, false);
+        //doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+...
 ```
 
+可配置全局变量
 ```css
 $default-rem-base: 40px !default;
 ```
